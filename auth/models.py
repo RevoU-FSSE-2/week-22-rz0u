@@ -10,7 +10,7 @@ class Role(Enum):
 
 
 class User(db.Model):
-    id = db.Column(db.Integer, primary_key=True)
+    _id = db.Column(db.Integer, primary_key=True)
     username = db.Column(db.String(50), unique=True, nullable=False)
     email = db.Column(db.String(50), unique=True, nullable=False)
     password = db.Column(db.String(100), nullable=False)
@@ -28,7 +28,6 @@ class UserRegisterSchema(Schema):
     password = fields.Str(
         required=True, validate=validate.Regexp(r"^(?=.*[a-zA-Z])(?=.*\d)")
     )
-    # role = fields.Str(required=True, validate=validate.OneOf(Role))
     role = fields.Str(
         required=True, validate=validate.OneOf([role.value for role in Role])
     )

@@ -57,13 +57,12 @@ def login():
         return {"error": "Invalid username or password"}, 401
 
     payload = {
-        "user_id": user.id,
+        "user_id": user._id,
         "username": user.username,
         "role": user.role.value,
         "exp": datetime.datetime.utcnow() + datetime.timedelta(hours=5),
     }
-    print(payload)
+
     token = jwt.encode(payload, os.getenv("SECRET_KEY"), algorithm="HS256")
-    print(token)
 
     return {"message": "Logged in successfully!", "data": token}

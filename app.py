@@ -6,6 +6,7 @@ from enum import Enum
 from sqlalchemy import Enum as EnumType
 from flask_bcrypt import Bcrypt
 from auth.apis import auth_bp
+from todos.apis import todos_bp
 
 app = Flask(__name__)
 
@@ -24,7 +25,8 @@ def index():
 
 
 # Blueprints
-app.register_blueprint(auth_bp, url_prefix="/users")
+app.register_blueprint(auth_bp, url_prefix="/api/users")
+app.register_blueprint(todos_bp, url_prefix="/api/todos")
 
 
 # Class

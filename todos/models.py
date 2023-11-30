@@ -35,8 +35,5 @@ class NewTaskSchema(Schema):
     title = fields.Str(required=True)
     content = fields.Str(required=True)
     priority = fields.Str(required=True)
-    status = fields.Str(required=True)
     dueDates = fields.Str(required=True)
-    assignor = fields.Str(required=True)
     assignee = fields.Str(required=True)
-    user_id = fields.Int(required=True)
