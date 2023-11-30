@@ -10,6 +10,8 @@ flask-sqlalchemy = "*"
 marshmallow = "*"
 psycopg2-binary = "*"
 python-dotenv = "*"
+pyjwt = "*"
+flask-jwt-extended = "*"
 
 [dev-packages]
 
