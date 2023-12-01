@@ -17,7 +17,7 @@ def get_todos(user_id, username, role):
     if role == "manager":
         todos = [
             {
-                "id": task._id,
+                "_id": task._id,
                 "title": task.title,
                 "content": task.content,
                 "priority": task.priority.value,
@@ -35,7 +35,7 @@ def get_todos(user_id, username, role):
     else:
         todos = [
             {
-                "id": task._id,
+                "_id": task._id,
                 "title": task.title,
                 "content": task.content,
                 "priority": task.priority.value,
@@ -82,7 +82,7 @@ def create_todo():
     db.session.commit()
 
     todo_dict = {
-        "id": todo._id,
+        "_id": todo._id,
         "title": todo.title,
         "content": todo.content,
         "priority": todo.priority.value,
@@ -116,3 +116,47 @@ def delete_todo(_id):
     db.session.commit()
 
     return {"message": "Task deleted successfully!"}
+
+
+# Update Task
+@todos_bp.route("/<int:_id>", methods=["PUT"])
+@authorized
+def update_todo(_id):
+    data = request.get_json()
+
+    todo = Task.query.get(_id)
+
+    if not todo:
+        return {"error": "Task not found"}, 404
+
+    # Certain update
+    title = data.get("title", todo.title)
+    content = data.get("content", todo.content)
+    priority = data.get("priority", todo.priority)
+    status = data.get("status", todo.status)
+    dueDates = data.get("dueDates", todo.dueDates)
+    assignee = data.get("assignee", todo.assignee)
+    assignor = data.get("assignor", todo.assignor)
+
+    todo.title = title
+    todo.content = content
+    todo.priority = priority
+    todo.status = status
+    todo.dueDates = dueDates
+    todo.assignee = assignee
+    todo.assignor = assignor
+
+    db.session.commit()
+
+    todo_dict = {
+        "_id": todo._id,
+        "title": todo.title,
+        "content": todo.content,
+        "priority": todo.priority.value,
+        "status": todo.status.value,
+        "dueDates": todo.dueDates,
+        "assignor": todo.assignor,
+        "assignee": todo.assignee,
+    }
+
+    return {"message": "Task updated successfully!", "data": todo_dict}
