@@ -48,3 +48,24 @@ def authorized(func):
             return {"error": "Invalid token"}, 401
 
     return wrapper
+
+
+def update_login(func):
+    @wraps(func)
+    def wrapper(*args, **kwargs):
+        token = request.headers.get("Authorization").split(" ")[1]
+        try:
+            decode = jwt.decode(token, os.getenv("SECRET_KEY"), algorithms=["HS256"])
+            role = decode["role"]
+            if role == Role.manager.value or Role.employee.value:
+                return func(*args, **kwargs)
+            else:
+                return {"error": "Not authorized"}, 401
+
+        except jwt.ExpiredSignatureError:
+            return {"error": "Token expired"}, 401
+
+        except jwt.InvalidTokenError:
+            return {"error": "Invalid token"}, 401
+
+    return wrapper

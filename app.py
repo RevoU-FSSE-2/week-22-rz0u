@@ -1,7 +1,6 @@
 import os
 from flask import Flask
 from db import db, db_init
-from flask_bcrypt import Bcrypt
 from auth.apis import auth_bp
 from todos.apis import todos_bp
 from flask_cors import CORS
@@ -15,8 +14,6 @@ database_url = os.getenv("DATABASE_URI")
 app.config["SQLALCHEMY_DATABASE_URI"] = database_url
 print(database_url)
 db.init_app(app)
-
-bcrypt = Bcrypt(app)
 
 
 # Home
