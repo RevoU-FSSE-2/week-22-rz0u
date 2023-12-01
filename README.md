@@ -2,7 +2,7 @@
 
 ### This App is designed to manage and track Todos, providing a digital solution for various industries that struggle with task management. Below, you will find short details about the available function.
 
-## [API Documentation](https://documenter.getpostman.com/view/29347896/2s9YeK2peD) |  [Deployed API // BELUM](https://us-central1-revou-fullstack-2.cloudfunctions.net/milestone_3_rzou)
+## [API Documentation](https://documenter.getpostman.com/view/29347896/2s9YeK2peD) |  [Deployed API](https://rayhanzou-nriez3incq-uc.a.run.app)
 ### Features
 ### User Registration
 

@@ -1,1 +1,0 @@
-# [DEPLOYMENT LINK](https://jade-dango-e36779.netlify.app)
