@@ -1,4 +1,3 @@
-import "./App.css";
 import { Category, CategoryAdd, CategoryEdit, Login, Register } from "./pages";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { PublicLayout } from "./layout";

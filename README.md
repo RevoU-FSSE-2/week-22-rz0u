@@ -56,4 +56,4 @@
 
 7. Your Todo List app is now deployed and accessible via a Firebase Hosting URL.
    
-## [Deployed Fullstack App](https://milestone-3-rzou.web.app/register)
+## [Deployed Fullstack App](https://rzou-week22.web.app)

@@ -2,7 +2,7 @@
   "functions": [
     {
       "source": "functions",
-      "codebase": "default",
+      "codebase": "week-22-rz0u",
       "ignore": [
         "venv",
         ".git",
@@ -13,7 +13,7 @@
   ],
   "hosting": {
     "site": "rzou-week22",
-    "public": "web",
+    "public": "web/dist",
     "ignore": [
       "firebase.json",
       "**/.*",
