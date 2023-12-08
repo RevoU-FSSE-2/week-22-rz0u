@@ -1,4 +1,4 @@
-from db import db
+from main.db import db
 from marshmallow import Schema, fields, validate
 from enum import Enum
 from sqlalchemy import Enum as EnumType

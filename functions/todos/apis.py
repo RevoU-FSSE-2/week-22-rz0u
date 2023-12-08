@@ -1,7 +1,7 @@
 from flask import Blueprint, request
 from todos.models import Task, NewTaskSchema
 from marshmallow import ValidationError
-from db import db
+from main.db import db
 import jwt, os, datetime
 from utils.auth import login, authorized, update_login
 from utils.bcrypt import bcrypt

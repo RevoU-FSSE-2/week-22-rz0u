@@ -1,7 +1,7 @@
 from flask import Blueprint, request
 from auth.models import User, UserRegisterSchema, UserLoginSchema
 from marshmallow import ValidationError
-from db import db
+from main.db import db
 import jwt, os, datetime
 from utils.bcrypt import bcrypt
 

@@ -1,4 +1,4 @@
-from app import app
+from main.app import app
 from firebase_functions import https_fn
 
 
